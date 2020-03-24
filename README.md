@@ -22,7 +22,7 @@ wait at least three minutes after switching on the soldering station before
 you start the calibration. Calibrate at your prefered temperature using the
 trimpot.
 
-Project at EasyEDA: https://easyeda.com/wagiminator/y-attiny13-soldering-station-smd
+Project on EasyEDA: https://easyeda.com/wagiminator/y-attiny13-soldering-station-smd
 
 
 ![IMG_20200323_171422_x.jpg](https://image.easyeda.com/pullimage/6zlz1T0bS0xivDuH5bGyqxX1nQG80YPWzZsWQyaF.jpeg)
