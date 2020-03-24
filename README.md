@@ -1,4 +1,4 @@
-# TinySolder - T12 Soldering Station for ATtiny13a
+# TinySolder - T12 Soldering Station based on ATtiny13a
 
 Simple T12 Quick Heating Soldering Station featuring (in 700 bytes of code):
 - Temperature measurement of the tip
