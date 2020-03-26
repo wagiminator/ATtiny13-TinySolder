@@ -41,15 +41,20 @@
 #include <avr/interrupt.h>
 #include <avr/power.h>
 
+// Pin definitions
 #define LED           PB0
 #define HEATER        PB1
 #define SWITCH        PB2
+#define POTI          A2
+#define TEMP          A3
 
+// ADC temperature calibration values
 #define TEMPSLEEP     100       // ADC3 in sleep mode
 #define TEMP150       118       // ADC3 at 150°C
 #define TEMP300       221       // ADC3 at 300°C
 #define TEMP450       324       // ADC3 at 450°C
 
+// Timer definitions
 #define CYCLETIME     100       // cycle delay time in miliseconds
 #define TIME2SETTLE   300       // voltage settle time in microseconds
 #define TIME2SLEEP   3000       // time to enter sleep mode in cycles
@@ -65,29 +70,29 @@ void setup() {
   PORTB = bit (SWITCH);                       // pull-up for switch
 
   // setup pin change interrupt
-  GIMSK = bit (PCIE);                         // turn on pin change interrupts
-  PCMSK = bit (PCINT2);                       // turn on interrupt on PB2
+  GIMSK = bit (PCIE);                         // pin change interrupts enable
+  PCMSK = bit (SWITCH);                       // turn on interrupt on switch pin
 
   // setup ADC
   ADCSRA  = bit (ADPS1) | bit (ADPS2);        // set ADC clock prescaler to 64
-  ADCSRA |= bit (ADIE);                       // enable ADC interrupt
+  ADCSRA |= bit (ADIE);                       // ADC interrupts enable
   interrupts ();                              // enable global interrupts
 
   // read temperature as start value for smoothing
-  smooth = denoiseAnalog (A3);
+  smooth = denoiseAnalog (TEMP);
 }
 
 
 void loop() {
   // calculate setpoint according to potentiometer setting
-  poti = denoiseAnalog (A2);                    // read potentiometer
-  if (poti < 512) setpoint = (uint32_t)poti * (TEMP300 - TEMP150) / 512 + TEMP150;
-  else            setpoint = (uint32_t)(poti - 512) * (TEMP450 - TEMP300) / (511) + TEMP300;
+  poti = denoiseAnalog (POTI);                  // read potentiometer
+  if (poti < 512) setpoint = (uint32_t) poti        * (TEMP300 - TEMP150) / 512 + TEMP150;
+  else            setpoint = (uint32_t)(poti - 512) * (TEMP450 - TEMP300) / 511 + TEMP300;
 
   // set heater according to temperature reading and setpoint
   bitClear(PORTB, HEATER);                      // shut off heater
   delayMicroseconds(TIME2SETTLE);               // wait for voltages to settle
-  temp = denoiseAnalog (A3);                    // read temperature
+  temp = denoiseAnalog (TEMP);                  // read temperature
   smooth = (smooth * 7 + temp) / 8;             // smooth temp readings
   if (smooth < setpoint) bitSet(PORTB, HEATER); // turn on heater if below setpoint
 
@@ -113,7 +118,7 @@ uint16_t denoiseAnalog (byte port) {
     while (bitRead(ADCSRA, ADSC));      // make sure sampling is completed
     result += ADC;                      // add them up
   }
-  return (result >> 4);                 // devide by 16 and return value
+  return (result >> 4);                 // divide by 16 and return value
 }
 
 
@@ -124,7 +129,7 @@ void sleep() {
     if (handleTimer < TIME2OFF) {                   // if not in off mode
       handleTimer++;                                // increase timer
       delayMicroseconds(TIME2SETTLE);               // wait for voltages to settle
-      temp = denoiseAnalog (A3);                    // read temperature
+      temp = denoiseAnalog (TEMP);                  // read temperature
       if (temp < TEMPSLEEP) bitSet(PORTB, HEATER);  // turn on heater if below sleep temp
       PINB = bit(LED);                              // toggle LED on PB0
     } else {                                        // if in off mode
