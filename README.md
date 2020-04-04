@@ -25,4 +25,6 @@ trimpot.
 Project on EasyEDA: https://easyeda.com/wagiminator/y-attiny13-soldering-station-smd
 
 
-![IMG_20200323_171422_x.jpg](https://image.easyeda.com/pullimage/6zlz1T0bS0xivDuH5bGyqxX1nQG80YPWzZsWQyaF.jpeg)
+![IMG_20200404_182220.jpg](https://image.easyeda.com/pullimage/R2Wd909aHIKF9wIwTOQ1eUUeJakUi3HpYrCEmsQ9.jpeg)
+
+![IMG_20200404_170702_x.jpg](https://image.easyeda.com/pullimage/AgBCg2dDQytsS4wqvN4cKa1zrnD5IrYBt13m09LM.jpeg)
