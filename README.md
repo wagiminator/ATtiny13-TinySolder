@@ -27,14 +27,9 @@ trimpot.
 
 Choose a power supply with an output voltage between 16V and 24V which can provide an output current according to the table below. The power supply must be well stabilized. The current and power is determined by the resistance (R = 8 Ohm) of the heater.
 
-|Command|Function|
-|-|-|
-|"i"|transmits indentification string ("Power Analyzer")|
-|"v"|transmits firmware version number|
-|"x"|terminate current test program|
-|"s *loadcurrent[mA]*"|set load to a constant current of *loadcurrent*|
-|"r"|reset the load to minimum|
-|"t"|read current and voltage of both sensors and transmit them|
+|Command|Function|sds|
+|-|-|-|
+|"i"|transmits indentification string ("Power Analyzer")|sasdas|
 
 |Voltage (U)|Current (I) = U / R|Power (P) = U² / R|
 |-|-|
