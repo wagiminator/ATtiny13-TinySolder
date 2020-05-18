@@ -29,11 +29,12 @@
 //                  GND  4|    |5  PB0 (D0) ------ LED
 //                        +----+    
 //
-// ATtiny13 MicroCore
+// ATtiny13 MicroCore (https://github.com/MCUdude/MicroCore)
 // Clockspeed 9.6 MHz internal
 // Micros disabled
 //
-// 2020 by Stefan Wagner
+// 2020 by Stefan Wagner (https://easyeda.com/wagiminator)
+// License: http://creativecommons.org/licenses/by-sa/3.0/
 
 
 // Libraries
