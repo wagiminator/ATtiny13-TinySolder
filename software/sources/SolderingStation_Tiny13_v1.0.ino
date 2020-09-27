@@ -1,4 +1,3 @@
-
 // TinySolder - T12 Soldering Station for ATtiny13a
 // 
 // Simple T12 Quick Heating Soldering Station featuring:
@@ -29,11 +28,15 @@
 //                  GND  4|    |5  PB0 (D0) ------ LED
 //                        +----+    
 //
-// ATtiny13 MicroCore (https://github.com/MCUdude/MicroCore)
-// Clockspeed 9.6 MHz internal
-// Micros disabled
+// Controller:  ATtiny13
+// Core:        MicroCore (https://github.com/MCUdude/MicroCore)
+// Clockspeed:  9.6 MHz internal
+// BOD:         BOD 2.7V
+// Timing:      Micros disabled (not needed)
 //
-// 2020 by Stefan Wagner (https://easyeda.com/wagiminator)
+// 2020 by Stefan Wagner 
+// Project Files (EasyEDA): https://easyeda.com/wagiminator
+// Project Files (Github):  https://github.com/wagiminator
 // License: http://creativecommons.org/licenses/by-sa/3.0/
 
 
@@ -57,7 +60,7 @@
 
 // Timer definitions
 #define CYCLETIME     100       // cycle delay time in miliseconds
-#define TIME2SETTLE   300       // voltage settle time in microseconds
+#define TIME2SETTLE   900       // voltage settle time in microseconds
 #define TIME2SLEEP   3000       // time to enter sleep mode in cycles
 #define TIME2OFF     6000       // time to shut off heater in cycles
 
