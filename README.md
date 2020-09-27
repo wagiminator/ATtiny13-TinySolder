@@ -54,6 +54,13 @@ In addition to the components for the PCB you will need the following:
 
 ![IMG_20200404_171054_x.jpg](https://image.easyeda.com/pullimage/KLoo4mTjiYTkjieIAcsvVtY2drNOCS0287MkVe61.jpeg)
 
-Make sure that all parts fit nicely into the case. Solder the wires to the connectors and protect them with heat shrinks. Use thick wires (AWG18) for the power connections. Make all connections according to the schematic down below. Solder the wires directly to the corresponding pads on the pcb. Upload the firmware and screw the pcb on top of the case.
+Make sure that all parts fit nicely into the case. Solder the wires to the connectors and protect them with heat shrinks. Use thick wires (AWG18) for the power connections. Make all connections according to the schematic down below. Solder the wires directly to the corresponding pads on the pcb. To make the soldering station ESD-safe, connect the earth (E) terminal of the aviator plug to a female dupont connector and glue it into the corresponding opening on the case. Now you can connect the soldering station via a male dupont connector to an earth terminal. Upload the firmware and screw the pcb on top of the case.
 
 ![connections.png](https://image.easyeda.com/pullimage/q0JfyFSQSTueZhpBkhrBhFbxtL1UqRARK1nrKThv.png)
+
+# 4. License #
+
+![license.png](https://i.creativecommons.org/l/by-sa/3.0/88x31.png)
+
+This work is licensed under Creative Commons Attribution-ShareAlike 3.0 Unported License. 
+(http://creativecommons.org/licenses/by-sa/3.0/)
