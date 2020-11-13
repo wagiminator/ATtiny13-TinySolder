@@ -1,4 +1,4 @@
-// TinySolder - T12 Soldering Station for ATtiny13a
+// TinySolder - T12 Soldering Station for ATtiny13A
 // 
 // Simple T12 Quick Heating Soldering Station featuring:
 // - Temperature measurement of the tip
@@ -28,7 +28,7 @@
 //                  GND  4|    |5  PB0 (D0) ------ LED
 //                        +----+    
 //
-// Controller:  ATtiny13
+// Controller:  ATtiny13A
 // Core:        MicroCore (https://github.com/MCUdude/MicroCore)
 // Clockspeed:  9.6 MHz internal
 // BOD:         BOD 2.7V

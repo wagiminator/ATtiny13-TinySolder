@@ -1,8 +1,8 @@
-# TinySolder - T12 Soldering Station based on ATtiny13a
+# TinySolder - T12 Soldering Station based on ATtiny13A
 
 # 1. Overview #
 
-TinySolder is a simple T12 Quick Heating Soldering Station based on the ATtiny13a featuring in 700 bytes of code:
+TinySolder is a simple T12 Quick Heating Soldering Station based on the ATtiny13A featuring in 700 bytes of code:
 - Temperature measurement of the tip
 - Direct control of the heater
 - Temperature control via potentiometer

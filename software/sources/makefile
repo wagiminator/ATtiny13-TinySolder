@@ -18,7 +18,7 @@ OBJECTS = main.o
 
 # Commands
 AVRDUDE = avrdude -c $(PROGRMR) -p $(DEVICE)
-COMPILE = avr-gcc -Wall -Os -mmcu=$(DEVICE) -DF_CPU=$(CLOCK) -DDEBUG_LEVEL=0
+COMPILE = avr-gcc -Wall -Os -flto -mmcu=$(DEVICE) -DF_CPU=$(CLOCK) -DDEBUG_LEVEL=0
 CLEAN   = rm -f main.lst main.obj main.cof main.list main.map main.eep.hex *.o main.s
 
 # Symbolic Targets
