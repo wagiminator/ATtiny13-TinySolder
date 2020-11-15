@@ -19,7 +19,8 @@ Indicator LEDs:
 For calibration you need a soldering iron tips thermometer. For best results wait at least three minutes after switching on the soldering station before you start the calibration. Calibrate at your prefered temperature using the
 trimpot.
 
-Video: https://youtu.be/LOpmxG2Fvpo
+- Project on EasyEDA: https://easyeda.com/wagiminator/y-attiny13-soldering-station-smd
+- Project Video: https://youtu.be/LOpmxG2Fvpo
 
 ![IMG_20200404_182220.jpg](https://image.easyeda.com/pullimage/R2Wd909aHIKF9wIwTOQ1eUUeJakUi3HpYrCEmsQ9.jpeg)
 
