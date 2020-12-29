@@ -6,11 +6,10 @@ TinySolder is a simple T12 Quick Heating Soldering Station based on the ATtiny13
 - Handle movement detection (by checking ball switch)
 - Time driven sleep/power off mode if iron is unused (movement detection)
 
-.
+![IMG_20200404_182220.jpg](https://image.easyeda.com/pullimage/R2Wd909aHIKF9wIwTOQ1eUUeJakUi3HpYrCEmsQ9.jpeg)
+
 - Project Video (YouTube): https://youtu.be/LOpmxG2Fvpo
 - Project Files (EasyEDA): https://easyeda.com/wagiminator/y-attiny13-soldering-station-smd
-
-![IMG_20200404_182220.jpg](https://image.easyeda.com/pullimage/R2Wd909aHIKF9wIwTOQ1eUUeJakUi3HpYrCEmsQ9.jpeg)
 
 # Hardware
 ## Heater Control
