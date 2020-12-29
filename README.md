@@ -11,7 +11,6 @@ TinySolder is a simple T12 Quick Heating Soldering Station based on the ATtiny13
 - Project Files (EasyEDA): https://easyeda.com/wagiminator/y-attiny13-soldering-station-smd
 
 ![IMG_20200404_182220.jpg](https://image.easyeda.com/pullimage/R2Wd909aHIKF9wIwTOQ1eUUeJakUi3HpYrCEmsQ9.jpeg)
-![IMG_20200404_170702_x.jpg](https://image.easyeda.com/pullimage/AgBCg2dDQytsS4wqvN4cKa1zrnD5IrYBt13m09LM.jpeg)
 
 # Hardware
 ## Heater Control
@@ -22,6 +21,8 @@ A thermocouple (temperature sensor) is located inside the T12 soldering tip. It 
 
 ## Voltage Regulator
 Since the ATtiny13A and the OpAmp only consume very little power, a small voltage regulator of the type [78L05](https://datasheet.lcsc.com/szlcsc/1811151533_Guangdong-Hottech-78L05_C181132.pdf) is completely sufficient for obtaining the 5V supply voltage. Because of the low current it has to deliver, it hardly heats up despite the relatively high voltage gradient.
+
+![IMG_20200404_170702_x.jpg](https://image.easyeda.com/pullimage/AgBCg2dDQytsS4wqvN4cKa1zrnD5IrYBt13m09LM.jpeg)
 
 # Software
 ## Implementation
