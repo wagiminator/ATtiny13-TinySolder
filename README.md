@@ -6,7 +6,7 @@ TinySolder is a simple T12 Quick Heating Soldering Station based on the ATtiny13
 - Handle movement detection (by checking ball switch)
 - Time driven sleep/power off mode if iron is unused (movement detection)
 
-
+.
 - Project Video (YouTube): https://youtu.be/LOpmxG2Fvpo
 - Project Files (EasyEDA): https://easyeda.com/wagiminator/y-attiny13-soldering-station-smd
 
@@ -127,7 +127,7 @@ trimpot.
 |POWER|blue|lights up when the station is receiving power|
 |HEAT|red|tip temperature has not reached setpoint yet|
 |WORKY|green|tip temperature is at setpoint - iron is worky|
-|HEAT + WORKY|red + green|blinking: iron is in sleep mode\n steady: iron is in off mode\n move handle to wake up|
+|HEAT + WORKY|red + green|blinking: iron is in sleep mode; steady: iron is in off mode; move handle to wake up|
 
 # References, Links and Notes
 1. [ATtiny13A Datasheet](http://ww1.microchip.com/downloads/en/DeviceDoc/doc8126.pdf)
