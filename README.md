@@ -3,13 +3,13 @@ TinySolder is a simple T12 Quick Heating Soldering Station based on the ATtiny13
 - Temperature measurement of the tip
 - Direct control of the heater
 - Temperature control via potentiometer
-- Handle movement detection (by checking ball switch)
+- Handle movement detection (by checking tilt switch)
 - Time driven sleep/power off mode if iron is unused (movement detection)
 
-![IMG_20200404_182220.jpg](https://image.easyeda.com/pullimage/R2Wd909aHIKF9wIwTOQ1eUUeJakUi3HpYrCEmsQ9.jpeg)
+![pic1.jpg](https://raw.githubusercontent.com/wagiminator/ATtiny13-TinySolder/master/documentation/TinySolder_pic1.jpg)
 
 - Project Video (YouTube): https://youtu.be/LOpmxG2Fvpo
-- Project Files (EasyEDA): https://easyeda.com/wagiminator/y-attiny13-soldering-station-smd
+- Design Files (EasyEDA): https://easyeda.com/wagiminator/y-attiny13-soldering-station-smd
 
 # Hardware
 ## Heater Control
@@ -21,7 +21,7 @@ A thermocouple (temperature sensor) is located inside the T12 soldering tip. It 
 ## Voltage Regulator
 Since the ATtiny13A and the OpAmp only consume very little power, a small voltage regulator of the type [78L05](https://datasheet.lcsc.com/szlcsc/1811151533_Guangdong-Hottech-78L05_C181132.pdf) is completely sufficient for obtaining the 5V supply voltage. Because of the low current it has to deliver, it hardly heats up despite the relatively high voltage gradient.
 
-![IMG_20200404_170702_x.jpg](https://image.easyeda.com/pullimage/AgBCg2dDQytsS4wqvN4cKa1zrnD5IrYBt13m09LM.jpeg)
+![pic2.jpg](https://raw.githubusercontent.com/wagiminator/ATtiny13-TinySolder/master/documentation/TinySolder_pic2.jpg)
 
 # Software
 ## Implementation
@@ -95,11 +95,11 @@ In addition to the components for the PCB you will need the following:
 - Some wires
 - 4 Self-tapping screws (2.3 * 5 mm)
 
-![IMG_20200404_171054_x.jpg](https://image.easyeda.com/pullimage/KLoo4mTjiYTkjieIAcsvVtY2drNOCS0287MkVe61.jpeg)
+![pic3.jpg](https://raw.githubusercontent.com/wagiminator/ATtiny13-TinySolder/master/documentation/TinySolder_pic3.jpg)
 
 Make sure that all parts fit nicely into the case. Solder the wires to the connectors and protect them with heat shrinks. Use thick wires (AWG18) for the power connections. Make all connections according to the schematic down below. Solder the wires directly to the corresponding pads on the pcb. To make the soldering station ESD-safe, connect the earth (E) terminal of the aviator plug to a female dupont connector and glue it into the corresponding opening on the case. Now you can connect the soldering station via a male dupont connector to an earth terminal. Upload the firmware and screw the pcb on top of the case.
 
-![connections.png](https://image.easyeda.com/pullimage/q0JfyFSQSTueZhpBkhrBhFbxtL1UqRARK1nrKThv.png)
+![pic4.png](https://raw.githubusercontent.com/wagiminator/ATtiny13-TinySolder/master/documentation/TinySolder_pic4.png)
 
 # Operating Instructions
 ## Power Supply Specification Requirements
