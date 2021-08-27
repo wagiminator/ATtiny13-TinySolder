@@ -97,9 +97,13 @@ In addition to the components for the PCB you will need the following:
 
 ![pic3.jpg](https://raw.githubusercontent.com/wagiminator/ATtiny13-TinySolder/master/documentation/TinySolder_pic3.jpg)
 
-Make sure that all parts fit nicely into the case. Solder the wires to the connectors and protect them with heat shrinks. Use thick wires (AWG18) for the power connections. Make all connections according to the schematic down below. Solder the wires directly to the corresponding pads on the pcb. To make the soldering station ESD-safe, connect the earth (E) terminal of the aviator plug to a female dupont connector and glue it into the corresponding opening on the case. Now you can connect the soldering station via a male dupont connector to an earth terminal. Upload the firmware and screw the pcb on top of the case.
+Make sure that all parts fit nicely into the case. Solder the wires to the connectors and protect them with heat shrinks. Use thick wires (AWG18) for the power connections. Make all connections according to the schematic down below but keep in mind, that there's no standard pinout. Solder the wires directly to the corresponding pads on the pcb. To make the soldering station ESD-safe, connect the earth (E) terminal of the aviator plug to a female dupont connector and glue it into the corresponding opening on the case. Now you can connect the soldering station via a male dupont connector to an earth terminal. Upload the firmware and screw the pcb on top of the case.
 
 ![pic4.png](https://raw.githubusercontent.com/wagiminator/ATtiny13-TinySolder/master/documentation/TinySolder_pic4.png)
+
+The pinout shown works for the [Quecoo handles from aliexpress](https://aliexpress.com/wholesale?SearchText=quecoo+handle). Different handles may have different pinouts. If you are assembling your handle yourself, follow the scheme shown below. The video by [John Glavinos (electronics4all)](https://www.youtube.com/watch?v=DcmiFfuZw38) shows how it's done.
+
+![pic5.png](https://raw.githubusercontent.com/wagiminator/ATtiny13-TinySolder/master/documentation/TinySolder_pic5.png)
 
 # Operating Instructions
 ## Power Supply Specification Requirements
