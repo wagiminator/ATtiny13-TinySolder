@@ -1,5 +1,5 @@
 # TinySolder - T12 Soldering Station based on ATtiny13A
-TinySolder is a simple T12 Quick Heating Soldering Station based on the ATtiny13A featuring in 700 bytes of code:
+TinySolder is a simple T12 Quick Heating Soldering Station based on the ATtiny13A featuring in less than 500 bytes of code:
 - Temperature measurement of the tip
 - Direct control of the heater
 - Temperature control via potentiometer
@@ -31,27 +31,27 @@ A sleep timer runs all the time, which is reset by a pin change interrupt as soo
 
 The main loop of the code is shown below:
 ```c
-// main loop
+// Loop
 while(1) {
-  // calculate setpoint according to potentiometer setting
-  poti = denoiseAnalog (POTI);                  // read potentiometer
-  if (poti < 512) setpoint = (uint32_t) poti        * (TEMP300 - TEMP150) / 512 + TEMP150;
-  else            setpoint = (uint32_t)(poti - 512) * (TEMP450 - TEMP300) / 511 + TEMP300;
+  // Read potentiometer setting and calculate setpoint accordingly
+  poti = ADC_read(pinADC(POTI));
+  if (poti < 512) setpoint = (uint32_t)(( poti        * (TEMP300 - TEMP150))>>9) + TEMP150;
+  else            setpoint = (uint32_t)(((poti - 512) * (TEMP450 - TEMP300))>>9) + TEMP300;
 
-  // set heater according to temperature reading and setpoint
-  PORTB &= ~(1<<HEATER);                        // shut off heater
-  _delay_us(TIME2SETTLE);                       // wait for voltages to settle
-  temp = denoiseAnalog (TEMP);                  // read temperature
-  smooth = (smooth * 7 + temp) / 8;             // smooth temp readings
-  if (smooth < setpoint) PORTB |= (1<<HEATER);  // turn on heater if below setpoint
+  // Set heater according to temperature reading and setpoint
+  pinLow(HEATER);                                 // shut off heater
+  _delay_us(TIME2SETTLE);                         // wait for voltages to settle
+  temp = ADC_read(pinADC(TEMP));                  // read temperature
+  smooth = ((smooth << 3) - smooth + temp) >> 3;  // low pass filter
+  if (smooth < setpoint) pinHigh(HEATER);         // turn on heater if below setpoint
 
-  // set status LED according to temperature and setpoint
-  PORTB &= ~(1<<LED);
-  if ((smooth + 10 > setpoint) && (setpoint + 10 > smooth)) PORTB |= (1<<LED);
+  // Set status LED according to temperature and setpoint
+  pinLow(LED);
+  if ((smooth + 10 > setpoint) && (setpoint + 10 > smooth)) pinHigh(LED);
 
-  // some timing
-  if (handleTimer++ > TIME2SLEEP) sleep();      // sleep mode if handle unused
-  _delay_ms(CYCLETIME);                         // wait for next cycle
+  // Some timing
+  if (handleTimer++ > TIME2SLEEP/CYCLETIME*1000) sleep(); // sleep mode if handle unused
+  _delay_ms(CYCLETIME - 8);                               // wait for next cycle
 }
 ```
 
@@ -60,13 +60,13 @@ while(1) {
 - Make sure you have installed [MicroCore](https://github.com/MCUdude/MicroCore).
 - Go to **Tools -> Board -> MicroCore** and select **ATtiny13**.
 - Go to **Tools** and choose the following board options:
-  - **Clock:**  9.6 MHz internal osc.
+  - **Clock:**  1.2 MHz internal osc.
   - **BOD:**    BOD 2.7V
   - **Timing:** Micros disabled
 - Connect your programmer to your PC and to the ICSP header on the TinySolder board.
 - Go to **Tools -> Programmer** and select your ISP programmer (e.g. [USBasp](https://aliexpress.com/wholesale?SearchText=usbasp)).
 - Go to **Tools -> Burn Bootloader** to burn the fuses.
-- Open SolderingStation_Tiny13_v1.0.ino and click **Upload**.
+- Open TinySolder.ino and click **Upload**.
 
 ### If using the precompiled hex-file
 - Make sure you have installed [avrdude](https://learn.adafruit.com/usbtinyisp/avrdude).
@@ -75,7 +75,7 @@ while(1) {
 - Navigate to the folder with the hex-file.
 - Execute the following command (if necessary replace "usbasp" with the programmer you use):
   ```
-  avrdude -c usbasp -p t13 -U lfuse:w:0x7a:m -U hfuse:w:0xff:m -U flash:w:SolderingStation_Tiny13_v1.0.hex
+  avrdude -c usbasp -p t13 -U lfuse:w:0x2a:m -U hfuse:w:0xfb:m -U flash:w:tinysolder.hex
   ```
 
 ### If using the makefile (Linux/Mac)
@@ -83,7 +83,7 @@ while(1) {
 - Connect your programmer to your PC and to the ICSP header on the TinySolder board.
 - Open the makefile and change the programmer if you are not using usbasp.
 - Open a terminal.
-- Navigate to the folder with the makefile and main.c.
+- Navigate to the folder with the makefile and sketch.
 - Run "make install" to compile, burn the fuses and upload the firmware.
 
 # Building Instructions
